@@ -9,7 +9,8 @@
 #include "utils.h"
 
 void kill_self() {
-    kill(getpid(), SIGKILL);
+//    kill(getpid(), SIGKILL);
+    LOGE("tried to kms");
 }
 
 bool check_signature() {
