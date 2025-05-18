@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.channels.FileLock;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -144,6 +145,7 @@ public class NativeLoader {
                 }
             }*/
 
+            FileLog.d(context.getFilesDir().getAbsolutePath());
             File destDir = new File(context.getFilesDir(), "lib");
             destDir.mkdirs();
 
@@ -152,6 +154,7 @@ public class NativeLoader {
                 try {
                     if (BuildVars.LOGS_ENABLED) {
                         FileLog.d("Load local lib");
+                        FileLog.d(destLocalFile.getAbsolutePath());
                     }
                     System.load(destLocalFile.getAbsolutePath());
                     nativeLoaded = true;
